@@ -41,7 +41,8 @@ TUPLE: mail-gadget < track to subject body ;
 M: mail-gadget focusable-child* to>> ;
 
 : <to> ( mail -- gadget )
-    to>> "To:" label-on-left ;
+    to>> "To:" label-on-left
+    { 4 4 } <border> ;
 
 : <subject> ( mail -- gadget )
     subject>> "Subject:" label-on-left ;
@@ -74,7 +75,7 @@ mail-gadget "toolbar" f {
 
 : <mail-gadget> ( -- gadget )
     vertical mail-gadget new-track
-        1 >>fill
+        0 >>fill
         { 10 10 } >>gap
 
         <tabbing-editor> >>to
